@@ -112,8 +112,9 @@ alias dcdown="sudo docker compose down"
 alias dcstop="sudo docker compose stop"
 alias dcstart="sudo docker compose start"
 alias dcrestart="sudo docker compose restart"
-
-
+alias prime="ssh james@prime.local"
+alias vpnup="wg-quick up ./rumble.conf"
+alias vpndown="wg-quick down ./rumble.conf"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -123,3 +124,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 #glue
 #
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+PATH=/squashfs-root/usr/bin:/home/james/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

@@ -77,7 +77,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux zsh-autosuggestions)
+plugins=(git tmux zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,6 +115,7 @@ alias dcrestart="sudo docker compose restart"
 alias prime="ssh james@prime.local"
 alias vpnup="wg-quick up ./rumble.conf"
 alias vpndown="wg-quick down ./rumble.conf"
+alias bat="batcat"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 

@@ -1,0 +1,14 @@
+# this is my alacritty config file
+import = ["~/tokyonight.nvim/extras/alacritty/tokyonight_moon.toml"]
+
+[window]
+dimensions = {columns=120, lines=30}
+opacity = 0.95
+blur = true
+#decorations = "None"
+
+[font]
+normal = { family = "MesloLGL Nerd Font Mono"}
+
+[selection]
+save_to_clipboard = true

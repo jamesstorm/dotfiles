@@ -7,15 +7,11 @@
 #
 
 
-ZCOMPCACHE="$HOME/.cache/zsh/zcompcache"
-[[ -d $ZCOMPCACHE ]] || mkdir -p $ZCOMPCACHE
 
 
 [ -f "${ZDOTDIR}/aliases.zsh" ] && source "${ZDOTDIR}/aliases.zsh"
 [ -f "${ZDOTDIR}/options.zsh" ] && source "${ZDOTDIR}/options.zsh"
 [ -f "${ZDOTDIR}/path.zsh" ] && source "${ZDOTDIR}/path.zsh"
-
-
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -30,7 +26,7 @@ bindkey -v
 zstyle :compinstall filename '/home/james/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 # End of lines added by compinstall
 
 
@@ -111,5 +107,3 @@ alias news='web_search duckduckgo \!n'
 alias map='web_search duckduckgo \!m'
 alias image='web_search duckduckgo \!i'
 alias ducky='web_search duckduckgo \!'
-PATH=/home/james/.local/bin/nvim-linux64/bin:/home/james/.local/bin/nvim-linux64/bin:/home/james/.local/bin/nvim-linux64/bin:/home/james/.local/bin/nvim-linux64/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/james/.local/bin:/opt/nvim-linux64/bin:/home/james/.local/bin:/opt/nvim-linux64/bin
-PATH=/home/james/.local/bin/nvim-linux64/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl

@@ -1,3 +1,6 @@
+alias sp='sudo pacman' 
+alias c='clear'
+alias n='nvim'
 alias use="du -h -d 1"
 alias rmr="rm -rf"
 alias dcup="sudo docker compose up -d"
@@ -8,7 +11,7 @@ alias dcrestart="sudo docker compose restart"
 alias vpnup="wg-quick up ./rumble.conf"
 alias vpndown="wg-quick down ./rumble.conf"     
 alias ls="ls --color=auto"                            # use ls colorfully
-alias l="ls -al"                                      # l is ls
+alias l="ls -ahl"                                      # l is ls
 alias nw="alacritty msg create-window"                # open new window in alacritty
 alias inv='nvim $(fzf --preview="bat --color always {}")'
 alias gs='git status'

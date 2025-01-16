@@ -1,33 +1,42 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }} on {{ .Host }}'
+version = 3
+final_space = true
+
+[secondary_prompt]
+  template = ' '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = ' '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  #newline = true
 
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'blue'
-    template = '{{ .Path }}'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
+    template = ' {{if .HEAD}} {{ .HEAD }}{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }} <lightMagenta></a>{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
     foreground = 'lightBlue'
     background = 'transparent'
-    template = " {{if .HEAD}} {{ .HEAD }}{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }} <lightMagenta></a>{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
       branch_icon = ''
+      cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
 
@@ -36,13 +45,14 @@ console_title_template = '{{ .Shell }} in {{ .Folder }} on {{ .Host }}'
   overflow = 'hidden'
 
   [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
+    template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     background = 'transparent'
-    template = '{{ .FormattedMs }}'
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       threshold = 5000
 
 [[blocks]]
@@ -51,49 +61,43 @@ console_title_template = '{{ .Shell }} in {{ .Folder }} on {{ .Host }}'
   newline = true
 
   [[blocks.segments]]
+    template = '<cyan>{{ .Icon}}</> '
+    background = 'transparent'
     type = 'os'
     style = 'plain'
-    background = 'transparent'
-    template = "<cyan>{{ .Icon}}</> " 
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
   [[blocks.segments]]
+    template = '<lightBlue>{{.UserName}}@{{.HostName}}</> '
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    background = 'transparent'
-    template = "<lightBlue>{{.UserName}}@{{.HostName}}</> " 
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
   [[blocks.segments]]
+    template = ''
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}",
-    ]
-    background = 'transparent'
-    template = "" 
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
-  ]
-  background = 'transparent'
-  template = " " 
-
-
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = " " 
-
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[blocks]]
   type = 'rprompt'
   alignment = 'right'
-  
+
   [[blocks.segments]]
-    type = "text"
-    style= "powerline"
-    background = "transparent"
-    foreground = "cyan"
-    template = "{{ if .Env.VIRTUAL_ENV_PROMPT }}{{ .Env.VIRTUAL_ENV_PROMPT }}{{ end }}"
-    leading_diamong = "%"
+    template = '{{ if .Env.VIRTUAL_ENV_PROMPT }}{{ .Env.VIRTUAL_ENV_PROMPT }}{{ end }}'
+    foreground = 'cyan'
+    background = 'transparent'
+    type = 'text'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'

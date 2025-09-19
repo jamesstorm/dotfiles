@@ -3,11 +3,11 @@ alias c='clear'
 alias n='nvim'
 alias use="du -h -d 1"
 alias rmr="rm -rf"
-alias dcup="sudo docker compose up -d"
-alias dcdown="sudo docker compose down"
-alias dcstop="sudo docker compose stop"
-alias dcstart="sudo docker compose start"
-alias dcrestart="sudo docker compose restart"
+alias dcup="docker compose up -d --remove-orphans"
+alias dcdown="docker compose down"
+alias dcstop="docker compose stop"
+alias dcstart="docker compose start"
+alias dcrestart="docker compose restart"
 alias vpnup="wg-quick up ./rumble.conf"
 alias vpndown="wg-quick down ./rumble.conf"     
 alias ls="ls --color=auto"                            # use ls colorfully

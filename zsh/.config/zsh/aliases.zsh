@@ -27,3 +27,4 @@ alias unlockuser='faillock --reset --user'
 alias dot='cd ~/dotfiles'
 alias ins='cd ~/installers/'
 alias freec='QT_QPA_PLATFORM=xcb freecad'
+alias vi=nvim
